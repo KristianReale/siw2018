@@ -35,7 +35,7 @@
 			<th>Matricola</th>
 			<th>Nome</th>
 			<th>Cognome</th>
-			<th>Data di Nascita</td>	
+			<th>Data di Nascita</th>			
 		</tr>
 		</thead>
 		
@@ -46,22 +46,10 @@
 				<td>${studente.matricola}</td>
 				<td>${studente.nome}</td>
 				<td>${studente.cognome}</td>
-				<td><time>${studente.dataNascita}</time></td>
+				<td><time>${studente.dataNascita}</time></td>				
 			</tr>			
 		</c:forEach>
-					
-		<tr class="active studente">
-			<td>111111</td>
-			<td>Marco</td>
-			<td>Milano</td>
-			<td>11/09/2008</td>	
-		</tr>
-		<tr class="success studente">
-			<td>222222</td>
-			<td>Giuseppe</td>
-			<td>Garibaldi</td>
-			<td>4/07/1807</td>
-		</tr>
+							
 		</tbody>
 		<tfoot>
 		<tr class="active">

@@ -9,6 +9,7 @@ import java.util.List;
 
 import model.Corso;
 import model.CorsoDiLaurea;
+import model.Dipartimento;
 import model.Studente;
 import persistence.dao.CorsoDao;
 import persistence.dao.CorsoDiLaureaDao;
@@ -106,15 +107,16 @@ public class CorsoDiLaureaDaoJDBC implements CorsoDiLaureaDao {
 		CorsoDiLaurea corsoDiLaurea = null;
 		try {
 			PreparedStatement statement;
-			String query = "select cl.codice as cl_codice, cl.nome as cl_nome, c.codice as c_codice, c.nome as c_nome, "
+			String query = "select cl.codice as cl_codice, cl.nome as cl_nome, c.codice as c_codice, c.nome as c_nome, d.codice as d_codice, "
 					+ "s.matricola as s_matricola, s.nome as s_nome, "
 					+ "s.cognome as s_cognome, s.data_nascita as s_data_nascita, s.indirizzo_codice as s_indirizzo_codice "
-					+ "from corsodilaurea cl, afferisce a, corso c, studente s, iscritto i "
+					+ "from corsodilaurea cl, afferisce a, corso c, studente s, iscritto i, dipartimento d "
 					+ "where cl.codice = ?"
 					+ "			AND cl.codice = a.corsodilaurea_codice "
 					+ "			AND a.corso_codice = c.codice "
 					+ "			AND i.corso_codice = c.codice "
 					+ "			AND i.matricola_studente = s.matricola"
+					+ "			AND d.codice = cl.dipartimento_codice"
 					;
 			statement = connection.prepareStatement(query);
 			statement.setLong(1, id);
@@ -125,6 +127,12 @@ public class CorsoDiLaureaDaoJDBC implements CorsoDiLaureaDao {
 					corsoDiLaurea = new CorsoDiLaurea();
 					corsoDiLaurea.setCodice(result.getLong("cl_codice"));				
 					corsoDiLaurea.setNome(result.getString("cl_nome"));
+					
+					DipartimentoDaoJDBC dipartimentoDao = new DipartimentoDaoJDBC(dataSource);
+					Dipartimento dipartimento;
+					dipartimento = dipartimentoDao.findByPrimaryKey(result.getLong("d_codice"));
+					corsoDiLaurea.setDipartimento(dipartimento);
+					
 					primaRiga = false;
 				}
 				if(result.getString("c_codice")!=null){
@@ -140,8 +148,6 @@ public class CorsoDiLaureaDaoJDBC implements CorsoDiLaureaDao {
 //					}
 					
 					corsoDiLaurea.addCorso(corso);
-					
-					
 				}
 			}
 		} catch (SQLException e) {
@@ -273,6 +279,7 @@ public class CorsoDiLaureaDaoJDBC implements CorsoDiLaureaDao {
 			}
 		}
 	}
+		
 
 
 }
