@@ -126,10 +126,12 @@ public class MainJDBC {
 		dipartimentoDao.save(dipartimento2);
 		
 		CorsoDiLaurea corsoDiLaurea1 = new CorsoDiLaurea();
+		corsoDiLaurea1.setNome("Informatica");
 		corsoDiLaurea1.addCorso(corso1);
 		corsoDiLaurea1.setDipartimento(dipartimento1);
 		
 		CorsoDiLaurea corsoDiLaurea2 = new CorsoDiLaurea();
+		corsoDiLaurea2.setNome("Scienze Biologiche");
 		corsoDiLaurea2.addCorso(corso1);
 		corsoDiLaurea2.addCorso(corso2);
 		corsoDiLaurea2.setDipartimento(dipartimento2);
