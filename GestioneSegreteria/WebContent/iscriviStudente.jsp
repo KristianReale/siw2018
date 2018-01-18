@@ -13,6 +13,9 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
+<script src="js/studenti.js"></script>
+
+
 <!--   
 <LINK rel="stylesheet" href="css/common.css" type="text/css">
  -->
@@ -53,15 +56,33 @@
 		<div class="form-group"><label for="confermaPassword">Conferm password:</label>  <input name="confermaPassword" type="password" class="form-control" /> </div> 
 		<div class="form-group"><label for="indirizzo">Indirizzo:</label>			
 			<select name="indirizzo" class="form-control">
+				<c:forEach var="indirizzo" items="${indirizzi}">
+					<option value="${indirizzo.codice}">${indirizzo.nome}</option>					
+				</c:forEach>
+				<!-- 
 				<optgroup label="Intelligenza Artificiale">
 				<option value="2">Robotica</option>
 				<option value="1">Logica Computazionale</option>
 				</optgroup>
 				<optgroup label="Storia">
 				<option value="3">Archeologia</option>
-				</optgroup>				
+				</optgroup>		
+				 -->		
 			</select>		
-		</div>		
+		</div>	
+		<div class="form-group"><label for="dipartimento">Dipartimento:</label>			
+			<select id="dip" name="dipartimento" class="form-control">
+				<option value="---"></option>	
+				<c:forEach var="dipartimento" items="${dipartimenti}">
+					<option value="${dipartimento.codice}">${dipartimento.nome}</option>					
+				</c:forEach>
+			</select>	
+		</div>	
+		<div class="form-group"><label for="corsoDiLaurea">Corso di Laurea:</label>			
+			<select id="corso_laurea" name="corsoDiLaurea" class="form-control">
+				<option value="---"></option>					
+			</select>	
+		</div>	
 		<div class="form-group">
 			<input name="validaDati" type="button" value="Valida Dati" class="btn btn-warning"/>
 			<input name="resetDati" type="reset" value="Reset Dati"  class="btn btn-danger" onclick="messaggioPulisci();"/>
@@ -70,7 +91,6 @@
 	</form>
 </div>
 </section>
-
-
 </body>
+
 </html>

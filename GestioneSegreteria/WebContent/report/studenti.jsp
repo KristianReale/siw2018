@@ -17,6 +17,7 @@
 <LINK rel="stylesheet" href="css/common.css" type="text/css">
 
 <script src="js/gestioneServizi.js"></script>
+<script src="js/studenti.js"></script>
 
 </head>
 <body>
@@ -35,7 +36,8 @@
 			<th>Matricola</th>
 			<th>Nome</th>
 			<th>Cognome</th>
-			<th>Data di Nascita</th>			
+			<th>Data di Nascita</th>
+			<th>Mostra dettagli</th>	
 		</tr>
 		</thead>
 		
@@ -46,10 +48,12 @@
 				<td>${studente.matricola}</td>
 				<td>${studente.nome}</td>
 				<td>${studente.cognome}</td>
-				<td><time>${studente.dataNascita}</time></td>				
+				<td><time>${studente.dataNascita}</time></td>
+				<td><input class="mostraDettagli" type="button" value="Mostra"
+					onclick="studente = new Studente('${studente.matricola}', '${studente.nome}', '${studente.cognome}', '${studente.dataNascita}'); dettagli(studente);"></input></td>
 			</tr>			
 		</c:forEach>
-							
+										
 		</tbody>
 		<tfoot>
 		<tr class="active">
@@ -58,8 +62,10 @@
 			<td><a href="javascript:onclick=ordinaStudenti('cognome')" href="">Ordina per Cognome</a></td>
 			<td><a href="javascript:onclick=ordinaStudenti('dataNascita')" href="">Ordina per Data di nascita</a></td>	
 		</tr>
-		</tfoot>
+		</tfoot>		
 	</table>
+	
+	<div id="dettagliStudente"></div>
 </div>
 
 
