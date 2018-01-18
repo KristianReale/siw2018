@@ -1,11 +1,11 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Dipartimento;
 import model.Indirizzo;
 import model.Studente;
 import persistence.DatabaseManager;
+import persistence.dao.DipartimentoDao;
 import persistence.dao.IndirizzoDao;
 import persistence.dao.StudenteDao;
 
@@ -27,6 +29,21 @@ public class IscriviStudente extends HttpServlet{
 			throws ServletException, IOException {
 		RequestDispatcher dispacher = 
 				req.getRequestDispatcher("iscriviStudente.jsp");
+
+		IndirizzoDao indirizzoDao = 
+				DatabaseManager.getInstance()
+				.getDaoFactory().getIndirizzoDAO();
+		
+		List<Indirizzo> indirizzi = indirizzoDao.findAll();
+		req.setAttribute("indirizzi", indirizzi);	
+		
+		DipartimentoDao dipartimentoDao = 
+				DatabaseManager.getInstance()
+				.getDaoFactory().getDipartimentoDAO();
+		
+		List<Dipartimento> dipartimenti = dipartimentoDao.findAll();
+		req.setAttribute("dipartimenti", dipartimenti);
+		
 		dispacher.forward(req, resp);
 	}
 	
@@ -60,7 +77,16 @@ public class IscriviStudente extends HttpServlet{
 			studenteDao.save(stud);
 			studenteDao.setPassword(stud, password);
 			
+			List<Indirizzo> indirizzi = indirizzoDao.findAll();
+			req.setAttribute("indirizzi", indirizzi);			
 			req.setAttribute("studente", stud);
+			
+			DipartimentoDao dipartimentoDao = 
+					DatabaseManager.getInstance()
+					.getDaoFactory().getDipartimentoDAO();
+			
+			List<Dipartimento> dipartimenti = dipartimentoDao.findAll();
+			req.setAttribute("dipartimenti", dipartimenti);
 			
 			RequestDispatcher dispacher = 
 					req.getRequestDispatcher("iscriviStudente.jsp");
