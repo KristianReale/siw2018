@@ -19,14 +19,39 @@ prefix="c" %>
 
 <LINK rel="stylesheet" href="css/common.css" type="text/css">
 
+<script>
+	$(window).on('load', function(){
+		$.ajax({
+			type: "GET",		
+			url: "https://jsonplaceholder.typicode.com/posts/1",		
+			success: function(data){
+				alert("FRASE DEL GIORNO:\n" + data.body);
+			}	
+		});	
+	});
+</script>
+
+
 </head>
 <body style="background: cyan">
+
+
+<script>
+function jsonFlickrFeed(data) {
+	$(window).on('load', function(){
+		$("#flirk").html(data.items[0].description);
+	});
+};
+</script>
+
+<script type="text/javascript" src="https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=owl"></script>
+
 <header style="color: red;" class="row">
 	<figure style=" text-align: center" class="col-lg-3">		
 		<a href="images/segreteria.jpg"><img class="img-circle img-thumbnail" src="images/segreteria.jpg" alt="Segreteria Studenti" width="300" /></a>
 		<figcaption>La nostra segreteria studenti</figcaption>		
 	</figure>
-	<hgroup class="col-lg-7">
+	<hgroup class="col-lg-4">
 	<h1>Portale Segreteria Studenti</h1>
 	<h2>Portale per la gestione degli studenti afferenti a qualche corso di laurea</h2>
 	</hgroup>	
@@ -44,6 +69,8 @@ prefix="c" %>
 		</c:if>
 			
 	</aside>
+	<iframe class="col-lg-3" src="https://www.youtube.com/embed/H09XzN2aDGc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+	</iframe>
 </header>
 
 <nav id="cssmenu" role="navigation" class="navbar navbar-inverse">
@@ -60,7 +87,7 @@ prefix="c" %>
 			<li><a class="dropdown-item" href="iscriviStudente">Iscrivi uno studente</a></li>
 			<li><a class="dropdown-item" href="servizi/isee.html">Calcola ISEE</a></li>
         </ul>
-       </li>
+    </li>
 	<li class="nav-item dropdown">
 		<a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
 			Gruppi
@@ -110,11 +137,17 @@ prefix="c" %>
 </div>
 </nav>
 
-<section class="jumbotron" id="intro" draggable="true">
-	<h2>
-		Benvenuti nel portale di gestione delle Segreterie Studenti
-	</h2>
-	<span class="break"> Utilizza il menu in alto per <strong>navigare tra le varie sezioni della nostra pagina</strong>.</span><span>Vuoi vedere il portale delle segreterie dell'Unical?</span>
+
+<section class="row" id="intro" draggable="true">
+	<div class="col-lg-6 jumbotron">
+		<h2>
+			Benvenuti nel portale di gestione delle Segreterie Studenti
+		</h2>
+		<span class="break"> Utilizza il menu in alto per <strong>navigare tra le varie sezioni della nostra pagina</strong>.</span><span>Vuoi vedere il portale delle segreterie dell'Unical?</span>
+	</div>
+	<div class="col-lg-6">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49396.325667490106!2d16.217289196661675!3d39.30479485437768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f974acd5e5e29%3A0x5619c8633cc426fa!2s87100+Cosenza+CS!5e0!3m2!1sit!2sit!4v1516273585413" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
 </section>
 <section id="information" class="row">
 	<article class="col-md-6 col-lg-6">
@@ -134,7 +167,19 @@ prefix="c" %>
 		Ã¨ stata approntata una scheda descrittiva contenente tutte le informazioni sullo stesso. Dal CCS 
 		invece Ã¨ possibile valutare, accedere alle statistiche dâuso o sporgere reclami sui servizi. 
 	</article>
+	<article class="col-md-6 col-lg-6">
+		<header class="articleHeader">
+			<big>Notizie dal mondo</big>
+		</header>
+		<script src="//rss.bloople.net/?url=http%3A%2F%2Fxml2.corriereobjects.it%2Frss%2Fhomepage.xml&limit=5&showtitle=false&type=js"></script>	</article>	
+	<article class="col-md-6 col-lg-6">
+		<header class="articleHeader">
+			<big>Foto da Flirk</big>
+		</header>
+		<div id="flirk"></div>
+	</article>	
 </section>
+
 
 <footer><small>Sito Web creato da Kristian Reale. Contattalo scrivendo a <a href="mailto:reale@dlvsystem.com"> reale@dlvsystem.com</a></small> </footer>
 </body>
