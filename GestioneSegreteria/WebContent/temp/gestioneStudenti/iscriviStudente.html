@@ -1,0 +1,48 @@
+<html>
+<head lang="it">
+<title>Gestione Segreteria Studenti</title>
+<meta charset="utf-8">
+
+<LINK rel="stylesheet" href="../css/common.css" type="text/css">
+
+</head>
+<body>
+<header>
+	<h1>Iscrivi un nuovo Studente</h1>
+	<h2>Compila i seguente form per registrare un nuovo studente</h2>
+</header>
+
+<section class="moduloRegistrazione">
+	<form method="get" action="invioDatiIscrizioneStudente">
+		<div><label class="etichetta" for="matricola">Matricola:</label> <input class="campo" name="matricola" type="text" /> </div> 
+		<div><label class="etichetta" for="nome">Nome:</label><input class="campo" name="nome" type="text" /></div> 
+		<div><label class="etichetta" for="cognome">Cognome:</label> <input class="campo" name="cognome" type="text" /> </div> 
+		<div><label class="etichetta" for="dataNascita">Data di Nascita:</label> <input class="campo" name="dataNascita" type="date" /> </div> 
+		<div><label class="etichetta" for="password">Password per lo studente:</label> <input class="campo" name="password" type="password" /> </div> 
+		<div><label class="etichetta" for="confermaPassword">Conferm password:</label>  <input class="campo" name="confermaPassword" type="password" /> </div> 			
+		<div><label class="etichetta" for="dipartimento">Dipartimento:</label>			
+			<select class="campo" id="dip" name="dipartimento" >
+				<option value="---">---</option>
+				<option value="Matematica e Informatica">Matematica e Informatica</option>
+				<option value="Economia">Economia</option>					
+			</select>
+		</div>			
+		<div><label class="etichetta" for="corsoDiLaurea">Corso di Laurea:</label>			
+			<select class="campo" id="corso_laurea" name="corsoDiLaurea" >
+				<option value="---">---</option>
+				<optgroup label="Matematica e Informatica">
+				<option value="Informatica">Informatica</option>
+				<option value="Matematica">Matematica</option>
+				</optgroup>				
+				<option value="Fisica">Fisica</option>					
+			</select>
+		</div>	
+		<div>						
+			<input class="campo" name="resetDati" type="reset" value="Reset Dati" >
+			<input class="campo" name="inviaDati" type="submit" value="Invia Dati"/>
+		</div>		
+	</form>
+</section>
+</body>
+
+</html>
