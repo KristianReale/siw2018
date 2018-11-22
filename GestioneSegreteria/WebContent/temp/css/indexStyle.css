@@ -1,52 +1,36 @@
-h1{
+h1 {
 	text-shadow: 3px 1px blue;
 }
 
-h2{
+h2 {
 	text-decoration: line-through;
 }
 
 ul {
-    list-style-type: circle;
-}
-
-ol {
-    list-style-type: upper-roman;
-}
-
-ol {
-    list-style-type: lower-alpha;
-}
-
-.submenu>li {
-    display: inline;
-}
-
-#information{
-	text-align: center;
+	list-style-type: circle;
 }
 
 article {
-	/* position: relative; */
 	position: absolute;
-    left: 30px;
-    
-    width: 45%;
-    border: 3px solid #73AD21;
-    
-    padding-top: 20px;    
-    padding-bottom: 20px;  
-    
-    margin-top: 50px;
-    margin-bottom: 50px;    
-}
-article+article{
-	position: absolute;
-    left: 50%;  
+	left: 30px;
+	
+	width: 45%;
+	border: 3px solid #73AD21;
+	
+	padding-top: 20px;
+	padding-bottom: 20px;
+	
+	margin-top: 50px;
+	margin-bottom: 50px;	
 }
 
 .special .articleHeader{
 	text-shadow: 3px 1px blue;
+}
+
+article+article{
+	position: absolute;
+    left: 50%;  
 }
 
 aside{
@@ -54,6 +38,17 @@ aside{
 	top: 10px;
 	right: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

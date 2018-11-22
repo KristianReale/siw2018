@@ -3,47 +3,75 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Gestione Segreteria</title>
+
 <style type="text/css">
-	section { 
-		color: brown;
+	section {
+		color:brown;
 		font-family: sans-serif;
-	}	
+	}
 </style>
 
-<LINK rel="stylesheet" href="css/indexStyle.css" type="text/css">
-<LINK rel="stylesheet" href="css/common.css" type="text/css">
+ 
+<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/common.css" type="text/css" />
 
 </head>
 <body bgcolor="cyan">
-<!-- commento -->
-<header>
-	<figure>		
-		<a href="images/segreteria.jpg"><img src="images/segreteria.jpg" alt="Segreteria Studenti" width="300" /></a>
-		<figcaption>La nostra segreteria studenti</figcaption>		
+<header class="row">
+	<figure class="col-md-4">
+		<a href="images/segreteria.jpg">
+			<img class="img-circle img-thumbnail" src="images/segreteria.jpg" width="300"/>
+		</a>
+		<figcaption>La nostra segreteria studenti</figcaption>
 	</figure>
-	<h1>Portale Segreteria Studenti</h1>
-	<h2>Portale per la gestione degli studenti afferenti a qualche corso di laurea</h2>
-	<aside style="align: right;">
+	<div class="col-md-4">
+		<h1>Portale segreteria studenti</h1>
+		<h2>Portale gestione segreteria studenti</h2>
+	</div>
+	<aside class="col-md-4">
 		<figure>
-			<a href="http://www.unical.it"><img src="images/logo_unical.png" alt="Sito Unical" width="300" /></a>			
-		</figure>						
+			<a href="http://www.unical.it">
+				<img  src="images/logo_unical.png" width="300"/>
+			</a>
+		</figure>
 	</aside>
 </header>
-<nav>
-	<ul>
-		<li><a href="index.html">Home</a></li>
-		<li>
-			Studenti
-			<ul>
-				<li><a href="gestioneStudenti/studenti.html">Elenco Studenti</a></li>
-				<li>Studenti di un certo corso</li>
-				<li><a href="gestioneStudenti/iscriviStudente.html">Iscrivi uno studente</a></li>
-			</ul>
-		</li>
-		<li>Corsi</li>
-		<li>Corsi di laurea</li>
-		<li>Dipartimenti</li>
-	</ul>
+
+<!-- commento -->
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<ul class="nav navbar-nav">
+			<li>Home</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+          			Studenti
+        		</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="gestioneStudenti/studenti.html">Elenco Studenti</a></li>
+					<li><a class="dropdown-item">Studenti di un certo corso</a></li>
+					<li><a class="dropdown-item" href="gestioneStudenti/iscriviStudenti.html">Iscrivi uno studente</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+          			Corsi
+        		</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+          			Corsi di laurea
+        		</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+          			Dipartimenti
+        		</a>
+			</li>
+		</ul>
+	</div>
 </nav>
 <h2>
 	Benvenuti nel portale di gestione delle Segreterie Studenti
@@ -58,21 +86,33 @@
 	Ti auguriamo una felice navigazione
 </p>
 
-<section>
-	<article>
-		<header>Dicono di noi</header>		
+<section class="row container">
+	<article class="col-md-5 jumbotron">
+		<header><h3>Dicono di noi</h3></header>
 		La segreteria è un servizio di riferimento che serve per...
-	</article>
-	<article>
-		<header>Centro ICT di Ateneo</header>
-		
+	</article>	
+	<div class="col-md-2" ></div>
+	<article class="col-md-5 jumbotron">
+		<header><h3>Centro ICT di Ateneo</h3></header>
 		Dalla pagine accessibile da <a href="www.unical.it">questo link</a>	
-		
-	</article>
+	</article>	 
+</section>
+<section class="row container">
+	<article class="col-md-5 jumbotron">
+		<header><h3>Ulteriori Informazioni</h3></header>
+		Vuoi sapere altro rispetto alla nostra segreteria?
+	</article>	
+	<div class="col-md-2" ></div>
+	<article class="col-md-5 jumbotron">
+		<header><h3>Premio migliore segreteria studenti</h3></header>
+		Questa segreteria per il terzo anno consecutivo vince il premio migliore segreteria.	
+	</article>	 
 </section>
 
-<a href="http://www.unical.it">
-	Clicca qui per accedere al sito dell'unical
-</a>
+<footer>
+	<a href="http://www.unical.it">
+		Clicca qui per accedere al sito dell'unical
+	</a>
+</footer>
 </body>
 </html>

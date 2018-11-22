@@ -36,7 +36,7 @@ th {
 
 .moduloRegistrazione .valore {	
 	/* position: relative; */	
-	position: absolute;	
+	position: relative;	
 	left: 250px;	        
 }
 

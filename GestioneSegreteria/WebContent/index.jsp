@@ -149,7 +149,7 @@ function jsonFlickrFeed(data) {
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49396.325667490106!2d16.217289196661675!3d39.30479485437768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f974acd5e5e29%3A0x5619c8633cc426fa!2s87100+Cosenza+CS!5e0!3m2!1sit!2sit!4v1516273585413" frameborder="0" style="border:0" allowfullscreen></iframe>
 	</div>
 </section>
-<section id="information" class="row">
+<section id="information" class="row container">
 	<article class="col-md-6 col-lg-6">
 		<header class="articleHeader">
 			<big>Dicono di Noi</big>
@@ -165,9 +165,9 @@ function jsonFlickrFeed(data) {
 		Ã possibile trovare il servizio desiderato sia attraverso degli elenchi di servizi organizzati secondo la tipologia di utenza 
 		sia attraverso la ricerca per parole chiave con un motore di ricerca locale google. Per ogni servizio
 		Ã¨ stata approntata una scheda descrittiva contenente tutte le informazioni sullo stesso. Dal CCS 
-		invece Ã¨ possibile valutare, accedere alle statistiche dâuso o sporgere reclami sui servizi. 
+		invece è possibile valutare, accedere alle statistiche di uso o sporgere reclami sui servizi. 
 	</article>
-	<article class="col-md-6 col-lg-6">
+	<article class="col-md-6 col-lg-6 jumbotron">
 		<header class="articleHeader">
 			<big>Notizie dal mondo</big>
 		</header>
