@@ -4,15 +4,25 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
-<script src="../js/gestioneServizi.js"></script>
+<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="../js/jquery-3.2.1.min.js"></script>
+  <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
+<script src="../js/iseeDom.js"></script>
 </head>
-<script language="javascript">
-	alert("Benventi nella procedura di calcolo ISEE per lo studente");
-</script>
-
 
 <body>
+<script language="javascript">
+	alert("Benvenuti nel servizio di Calcolo ISEE");
+</script>
+
+<script src="../js/gestioneServizi.js" ></script>
+
+<script language="javascript">
+operazioni();
+</script>
+
+<h1> Questa è la pagina di Calcolo ISEE</h1>
 
 <div class="table-responsive">
 	<table class="table">
@@ -33,7 +43,8 @@
 			<td>Kristian</td>
 			<td>Reale</td>
 			<td><time>10/10/2010</time></td>
-			<td><input type="button" value = "Calcola ISEE" onclick="studente = new Studente('103123', 'Kristian', 'Reale', new Date('10/10/2010')); maschera(studente);" /></td>
+			<td><input type="button" value = "Calcola ISEE" onclick="studente = new Studente('103123', 'Kristian', 'Reale', new Date('10/10/2010')); proceduraCalcoloISEE(studente);" /></td>
+			<td><input type="button" value = "Usa Maschera" onclick="studente = new Studente('103123', 'Kristian', 'Reale', new Date('10/10/2010')); maschera(studente);" /></td>
 		</tr>
 		
 		<tr class="active">
@@ -41,14 +52,16 @@
 			<td>Marco</td>
 			<td>Milano</td>
 			<td>11/09/2008</td>	
-			<td><input type="button" value = "Calcola ISEE" onclick="studente = new Studente('111111', 'Marco', 'Milano', new Date('11/09/2008')); maschera(studente);" /></td>
+			<td><input type="button" value = "Calcola ISEE" onclick="studente = new Studente('111111', 'Marco', 'Milano', new Date('11/09/2008')); proceduraCalcoloISEE(studente);" /></td>
+			<td><input type="button" value = "Usa Maschera" onclick="studente = new Studente('111111', 'Marco', 'Milano', new Date('11/09/2008')); maschera(studente);" /></td>
 		</tr>
 		<tr class="success">
 			<td>222222</td>
 			<td>Giuseppe</td>
 			<td>Garibaldi</td>
 			<td>4/07/1807</td>
-			<td><input type="button" value = "Calcola ISEE" onclick="studente = new Studente('222222', 'Giuseppe', 'Garibaldi', new Date('4/07/1807')); maschera(studente);" /></td>
+			<td><input type="button" value = "Calcola ISEE" onclick="studente = new Studente('222222', 'Giuseppe', 'Garibaldi', new Date('4/07/1807')); proceduraCalcoloISEE(studente);" /></td>
+			<td><input type="button" value = "Usa Maschera" onclick="studente = new Studente('222222', 'Giuseppe', 'Garibaldi', new Date('4/07/1807')); maschera(studente);" /></td>
 		</tr>
 		</tbody>
 		<tfoot>
@@ -83,8 +96,6 @@
 		</div>
 	</div>
 </section>
-
-<input value="Calcola ISEE" type="button" onclick="proceduraCalcoloISEE(new Studente('103123', 'Kristian', 'Reale', new Date('10/10/2010')));" />
 
 </body>
 </html>
