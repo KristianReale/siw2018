@@ -1,34 +1,50 @@
 function maschera(studente){
-	svuotaMaschera();
-	document.getElementById("selStudente").innerHTML = "<h4>" + studente.matricola + " : " + studente.cognome + " : " + studente.nome + "</h4>";
-	var numComponenti = document.getElementById("numComponenti");	
-	var calcola = document.getElementById("calcolaISEE");	
-	numComponenti.addEventListener("blur", aggiungiRedditoPatrimonioAllaMaschera);
-	calcola.addEventListener("click", calcolaISEEMaschera);	
+	svuota();
+	document.getElementById("selStudente").innerHTML =
+		"<h4>" + studente.matricola + " : "
+		+ studente.nome + " : "
+		+ studente.cognome + " </h4> ";
+	var numComponenti = document.getElementById("numComponenti");
+	numComponenti.addEventListener("blur", aggiungiCaselle);
+	var calcolaButton = document.getElementById("calcolaISEE")
+	calcolaButton.addEventListener("click", calcolaISEE);
 }
 
-function aggiungiRedditoPatrimonioAllaMaschera(){	
-	var countComponenti = document.getElementById("numComponenti");	
-	var valori = document.getElementById("valori");
-	var parent = countComponenti.parentElement;	
+function aggiungiCaselle(){
+	var numComponenti = document.getElementById("numComponenti");
+	var nComp = numComponenti.value;
 	
-	svuotaMaschera();
+	var tagValori = document.getElementById("valori");
 	
-	for (var i = 0; i < countComponenti.value; i++){		
-		var red = document.createElement("div");		
-		red.setAttribute("class", "form-group");
-		red.innerHTML = "<label>REDDITO del componente:</label> <input class='redditoComponente' type='text' class='form-control' /> ";
+	svuota();
+	
+	for (var i = 0; i < nComp; i++){
+		var redd = document.createElement("div");
+		redd.setAttribute("class", "form-group");
+		redd.innerHTML = "<label>REDDITO del componente:</label>" +
+				"<input class='redditoComponente' type='text' " +
+				"class='form-control' />";
 		
 		var patr = document.createElement("div");
 		patr.setAttribute("class", "form-group");
-		patr.innerHTML = "<label>PATRIMONIO del componente:</label> <input class='patrimonioComponente' type='text' class='form-control' />";			
-				
-		valori.appendChild(red);
-		valori.insertBefore(patr, red.nextSibling);
+		patr.innerHTML = "<label>PATRIMONIO del componente:</label>" +
+				"<input class='patrimonioComponente' type='text' " +
+				"class='form-control' />";
+		
+		tagValori.appendChild(redd);
+		tagValori.insertBefore(patr, redd.nextSibling);
+//		tagValori.appendChild(patr);
 	}
 }
 
-function calcolaISEEMaschera(){		
+function svuota(){
+	var tagValori = document.getElementById("valori");
+	while (tagValori.firstChild){
+		tagValori.removeChild(tagValori.firstChild);
+	}
+}
+
+function calcolaISEE(){		
 	var numeroComponenti = parseInt(document.getElementById("numComponenti").value);	
 	var redditi = document.getElementsByClassName("redditoComponente");	
 	var patrimoni = document.getElementsByClassName("patrimonioComponente");
@@ -77,14 +93,3 @@ function calcolaISEEMaschera(){
 	document.getElementById("ISEE").innerHTML = ISEE;	
 }
 
-function svuotaMaschera(){
-	var valori = document.getElementById("valori");
-	while (valori.firstChild) {
-		valori.removeChild(valori.firstChild);
-	}	
-	document.getElementById("ISR").innerHTML = "";
-	document.getElementById("ISP").innerHTML = "";
-	document.getElementById("ISE").innerHTML = "";
-	document.getElementById("scalaEquivalenza").innerHTML = "";
-	document.getElementById("ISEE").innerHTML = "";
-}

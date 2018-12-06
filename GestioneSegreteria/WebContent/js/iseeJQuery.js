@@ -10,24 +10,25 @@ function maschera(studente){
 
 function aggiungiRedditoPatrimonio(){		
 	var countComponenti = $("#numComponenti");	
+	alert(countComponenti.val());
 	var valori = $("#valori");
 	var parent = countComponenti.parent();	
 	
 	svuota();
 
 	for (var i = 0; i < countComponenti.val(); i++){		
-		var red = $("<div></div>");
-		red.addClass("form-group");
+		var redd = $("<div></div>");
+		redd.addClass("form-group");
 		//red.attr("class", "form-group");
-		red.html("<label>REDDITO del componente:</label> <input class='redditoComponente' type='text' class='form-control' /> ");
+		redd.html("<label>REDDITO del componente:</label> <input class='redditoComponente' type='text' class='form-control' /> ");
 		
 		var patr = $("<div></div>");
 		patr.addClass("form-group");
 		//patr.attr("class", "form-group");
 		patr.html("<label>PATRIMONIO del componente:</label> <input class='patrimonioComponente' type='text' class='form-control' />");			
 				
-		valori.append(red);
-		red.after(patr);
+		valori.append(redd);
+		redd.after(patr);
 	}
 }
 
